@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: shopez-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false # Prompts the user for their MongoDB Atlas connection string
+      - key: JWT_SECRET
+        generateValue: true # Automatically generates a secure random secret key
+      - key: FRONTEND_URL
+        sync: false # Prompts the user for their Vercel frontend URL
